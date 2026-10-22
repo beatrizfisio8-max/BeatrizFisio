@@ -1,0 +1,68 @@
+.hero-experience {
+  --hero-lift: 0px;
+  --hero-opacity: 1;
+  --panel-inset: 6%;
+  position: relative;
+  isolation: isolate;
+  overflow: clip;
+  background: #c9837f;
+}
+/* An absolute wrapper bounds the sticky canvas without a negative-margin box
+   that can keep painting over sections after the opening scene. */
+.sunlight-backdrop { position: absolute; inset: 0; overflow: clip; z-index: -1; pointer-events: none; }
+.sunlight-backdrop canvas { position: sticky; top: 0; display: block; width: 100%; height: 100lvh; }
+.hero-navigation { position: absolute; top: 28px; left: 28px; right: 28px; z-index: 5; }
+.hero-navigation .masthead { width: 100%; max-width: none; min-height: 76px; padding: 14px 25px; border-radius: 4px; background: var(--color-parchment); color: var(--color-walnut); gap: 25px; }
+.hero-navigation .wordmark { font-size: 34px; }
+.hero-navigation .wordmark span { margin-top: 7px; font-size: 7px; }
+.hero-navigation .navigation { gap: 30px; font-size: 12px; }
+.hero-navigation .navigation .nav-contact { border: 0; border-radius: 0; margin-left: 35px; padding: 10px 0; font-family: var(--font-serif); font-size: 17px; }
+.hero-experience .hero { width: 100%; max-width: none; min-height: 100svh; padding: 170px 48px 72px; color: var(--color-parchment); display: flex; flex-direction: column; align-items: center; justify-content: center; position: relative; }
+.hero-composition { width: 100%; transform: translate3d(0, var(--hero-lift), 0); opacity: var(--hero-opacity); will-change: transform, opacity; }
+.hero-experience .hero h1 { font-size: clamp(66px, 6.8vw, 122px); line-height: 1.02; letter-spacing: -.045em; margin: 25px auto 24px; max-width: 1400px; }
+.hero-experience .hero h1 > span { display: block; }
+.hero-experience .hero h1 em { font-size: 1em; margin: 0; }
+.hero-experience .hero .eyebrow { font-size: 10px; letter-spacing: .12em; }
+.hero-experience .hero-description { max-width: 610px; margin: 0 auto 25px; font-size: clamp(20px, 1.65vw, 27px); line-height: 1.4; }
+.hero-experience .hero .pill { border-color: #fef9edb3; font-size: 11px; padding: 13px 23px; }
+.hero-experience .hero-note { color: var(--color-parchment); font-size: 9px; margin-top: 14px; }
+.hero-experience .hero-bottom { position: absolute; bottom: 23px; left: 28px; right: 28px; margin: 0; padding: 0; border: 0; font-size: 9px; }
+.hero-experience .hero-bottom > span { padding: 10px 15px; border: 1px solid #fef9ed66; border-radius: 86px; }
+.intro-reveal { position: relative; padding-inline: var(--panel-inset); padding-top: 0; }
+.intro-reveal-paper { background: var(--color-parchment); min-height: 570px; }
+.intro-reveal .introduction { min-height: 570px; align-content: center; }
+
+@media (min-width: 1700px) {
+  .hero-experience .hero h1 { font-size: 128px; }
+}
+@media (max-width: 1100px) {
+  .hero-navigation .navigation { gap: 20px; font-size: 10px; }
+  .hero-navigation .navigation .nav-contact { margin-left: 5px; font-size: 15px; }
+  .hero-experience .hero h1 { font-size: clamp(62px, 7.1vw, 85px); }
+}
+@media (max-width: 760px) {
+  .hero-navigation { top: 16px; left: 16px; right: 16px; }
+  .hero-navigation .masthead { min-height: 72px; padding: 13px 17px; }
+  .hero-navigation .wordmark { font-size: 32px; }
+  .hero-navigation .menu-toggle { color: var(--color-walnut); border-color: var(--color-linen); padding: 10px 15px; }
+  .hero-navigation .navigation { top: 82px; background: var(--color-parchment); color: var(--color-walnut); border-color: var(--color-linen); gap: 8px; }
+  .hero-navigation .navigation .nav-contact { margin-left: 0; border-top: 1px solid var(--color-linen); padding-top: 18px; text-align: left; }
+  .hero-experience .hero { min-height: 100svh; padding: 140px 24px 110px; }
+  .hero-experience .hero h1 { font-size: clamp(46px, 8.7vw, 66px); line-height: 1.04; margin-block: 24px; }
+  .hero-experience .hero h1 em { max-width: 550px; }
+  .hero-experience .hero-description { font-size: 20px; max-width: 450px; }
+  .hero-experience .hero .eyebrow { font-size: 8px; }
+  .hero-experience .hero-bottom { left: 20px; right: 20px; bottom: 20px; }
+  .hero-experience .hero-bottom > span { max-width: 160px; font-size: 7px; padding: 8px 10px; }
+  .hero-experience .hero-note { max-width: 260px; font-size: 8px; }
+  .intro-reveal .introduction { width: calc(100% - 48px); min-height: 0; padding-block: 70px; }
+}
+@media (max-width: 380px) {
+  .hero-experience .hero { padding-inline: 18px; }
+  .hero-experience .hero h1 { font-size: 43px; }
+  .hero-experience .hero-description { font-size: 18px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-composition { transform: none; opacity: 1; will-change: auto; }
+  .intro-reveal { padding-inline: 0; }
+}
